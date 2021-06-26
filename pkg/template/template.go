@@ -1,8 +1,10 @@
-package papeer
+package template
 
 import (
 	"bytes"
 	"text/template"
+
+	"github.com/zoomoid/papeer/pkg/types"
 )
 
 var wrapperTemplate string = `\documentclass{article}
@@ -27,7 +29,7 @@ contents={\includegraphics{grid}}
 \end{document}
 `
 
-func Template(options *WrapperOptions) (string, error) {
+func Template(options *types.WrapperOptions) (string, error) {
 	tpl, err := template.New("wrapper-document").Parse(wrapperTemplate)
 	if err != nil {
 		return "", err

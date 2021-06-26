@@ -1,4 +1,4 @@
-module github.com/zoomoid/papeer-cli
+module github.com/zoomoid/papeer
 
 go 1.16
 

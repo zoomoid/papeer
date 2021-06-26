@@ -1,4 +1,4 @@
-package papeer
+package types
 
 type GridOptions struct {
 	Enabled bool
