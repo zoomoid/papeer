@@ -4,3 +4,4 @@
 
 > The project is under development as currently does not work. It requires a TeX compiler and we have yet to make considerations regarding implementation of this dependency.
 
+papeer will also include a gRPC server to receive requests via API calls.
