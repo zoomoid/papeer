@@ -11,7 +11,6 @@ import (
 )
 
 // Run creates a temporary directory and runs the templater to write to the file before calling latexmk on the file
-//
 func Run(options *types.WrapperOptions) (string, error) {
 	dir, err := os.MkdirTemp("", "runner-*")
 	if err != nil {
@@ -19,6 +18,15 @@ func Run(options *types.WrapperOptions) (string, error) {
 	}
 
 	defer os.RemoveAll(dir)
+
+	pwd, err := os.Getwd()
+
+	if err != nil {
+		return "", err
+	}
+
+	// redefine pdf to embed filename to qualified url
+	options.Filename = filepath.Join(pwd, options.Filename)
 
 	filename := uuid.New().String()
 
@@ -42,8 +50,6 @@ func Run(options *types.WrapperOptions) (string, error) {
 	if err != nil {
 		return "", err
 	}
-
-	pwd, err := os.Getwd()
 
 	if err != nil {
 		return "", err
