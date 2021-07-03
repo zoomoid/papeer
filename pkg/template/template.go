@@ -29,6 +29,7 @@ contents={\includegraphics{grid}}
 \end{document}
 `
 
+// Template assembles the main tex file that's compiled by latexmk
 func Template(options *types.WrapperOptions) (string, error) {
 	tpl, err := template.New("wrapper-document").Parse(wrapperTemplate)
 	if err != nil {
