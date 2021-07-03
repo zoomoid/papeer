@@ -93,6 +93,7 @@ func main() int {
 	return 0
 }
 
+// makeWrapperOptions creates a WrapperOptions struct from the given arguments
 func makeWrapperOptions(arg string) (*types.WrapperOptions, error) {
 	var options types.WrapperOptions
 
@@ -135,14 +136,18 @@ func makeWrapperOptions(arg string) (*types.WrapperOptions, error) {
 	return &options, nil
 }
 
+// watchDirectory monitors a directory for occuring PDFs and spawns a runner
+// TODO: Implement me!
 func watchDirectory(dir string) (int, error) {
 	return 0, nil
 }
 
+// oneOffBuild runs the runner process once and returns the filename of the output PDF
 func oneOffBuild(file string, config *types.WrapperOptions) (string, error) {
 	return runner.Run(config)
 }
 
+// validateFormat checks if format is a supported one, otherwise defaults to a3paper
 func validateFormat(format string) string {
 	for _, element := range supportedFormats {
 		if element == format {
